@@ -10,5 +10,6 @@ class Tamagotchi {
 		this.lifeStage = 'baby';
 		this.weight = Math.ceil(Math.random() * 5);
 		this.iq = Math.ceil((Math.random() * 40) + 80);
+		$('.container').prepend('<img id="sprite_1" src="images/defaultsprite.png" />')
 	}
 }

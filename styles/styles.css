@@ -1,0 +1,17 @@
+header {
+	text-align: center;
+	font-size: 40px;
+}
+
+.container {
+	height: 400px;
+	width: 400px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+#sprite_1 {
+	height: 50%;
+	width: 50%;
+	display: inline-block;
+}
