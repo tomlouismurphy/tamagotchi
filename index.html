@@ -3,13 +3,21 @@
 <head>
 	<title></title>
 	<link rel="stylesheet" href="styles/styles.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 <body>
 	<header>Tamagotchi</header>
-	<div class='container'>
+	<div class='startgame'>
+		<form>
+	  		<fieldset>
+			    <input id="gamestart" type="text" placeholder="Enter a name!" required>
+	    		<button class="btn" type="button">Submit</button>
+	  		</fieldset>
+		</form>
 	</div>
-
+	<div class='container'></div>
+	<div id="timer"></div>
 <script src="scripts/app.js"></script>
 </body>
 </html>

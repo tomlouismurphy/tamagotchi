@@ -7,16 +7,28 @@ header {
 	font-size: 40px;
 }
 
+form {
+	margin-top: 10%;
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+}
+
 .container {
 	height: 400px;
 	width: 400px;
 	text-align: center;
-	margin: 0 auto;
+	margin: 2% auto;
+}
+
+p {
+	margin-top: 3px;
+	margin-bottom: 3px;
 }
 
 #sprite_1 {
-	height: 50%;
-	width: 50%;
+	height: 70%;
+	width: 70%;
 	display: inline-block;
 }
 
