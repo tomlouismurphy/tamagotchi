@@ -39,7 +39,57 @@ class Tamagotchi {
 		this.age++;
 		$('#stat-0').text('Age: ' + hero.age);
 	}
+	die(){
+		$('#sprite_1').attr('src', 'images/graves-clipart-3.png');
+
+	}
 };
+
+const startTime = () => {
+	let timerVar = setInterval(countTimer, 1000);
+	let totalSeconds = 0;
+	function countTimer() {
+   		++totalSeconds;
+   		let hour = Math.floor(totalSeconds / 3600);
+   		let minute = Math.floor((totalSeconds - hour * 3600) / 60);
+  		let seconds;
+  		window.seconds = totalSeconds - (hour * 3600 + minute * 60);
+   		$("#timer").text(hour + ":" + minute + ":" + window.seconds);
+   		if (window.seconds % 5 === 0){
+   			hero.ageTamagotchi();
+   		}
+   		const trackHunger = () => {
+			if (window.seconds % 2 === 0) {
+				hero.hunger++;
+				$('#stat-1').text('Hunger: ' + hero.hunger);
+			}
+		};
+
+		const trackBoredom = () => {
+			if (window.seconds % 3 === 0) {
+				hero.boredom++;
+				$('#stat-3').text('Boredom: ' + hero.boredom);
+			}
+		};
+
+		const trackSleepiness = () => {
+			if (window.seconds % 50 === 0 && window.seconds !== 0) {
+				hero.sleepiness++;
+				$('#stat-2').text('Sleepiness: ' + hero.sleepiness);
+			}
+		};
+
+		const mortalityCheck = () => {
+			if (hero.hunger === 10 || hero.sleepiness === 10 || hero.boredom === 10){
+				hero.die();
+			}
+		};
+		trackHunger();
+		trackBoredom();
+		trackSleepiness();
+		mortalityCheck();
+   	}
+}
 
 const gameSetup = () => {
 	for (let i = 0; i < 4; i++){
@@ -52,13 +102,14 @@ const gameSetup = () => {
 	$('#stat-2').text('Sleepiness: ' + hero.sleepiness);
 	$('#stat-3').text('Boredom: ' + hero.boredom);
 	for (let i = 0; i < 3; i++){
-		const $button = $('<button></button>', {id: 'action-' + i})
+		const $button = $('<button></button>', {id: 'action' + i})
 		$button.addClass('interact');
 		$('.container').append($button);
 	}
-	$('#action-0').text('Feed');
-	$('#action-1').text('Nighty night!');
-	$('#action-2').text('Playtime');
+	$('#action0').text('Feed');
+	$('#action1').text('Nighty night!');
+	$('#action2').text('Playtime');
+	buttonFunction();
 	startTime();
 };
 
@@ -71,28 +122,29 @@ const createTamagotchi = () => {
 	window.hero = new Tamagotchi($name, $food);
 }
 
-const startTime = () => {
-	let timerVar = setInterval(countTimer, 1000);
-	let totalSeconds = 0;
-	function countTimer() {
-   		++totalSeconds;
-   		let hour = Math.floor(totalSeconds / 3600);
-   		let minute = Math.floor((totalSeconds - hour * 3600) / 60);
-  		let seconds = totalSeconds - (hour * 3600 + minute * 60);
-   		$("#timer").text(hour + ":" + minute + ":" + seconds);
-   		if (seconds % 5 === 0){
-   			hero.ageTamagotchi();
-   		}
-   	}
+const stopTime = () => {
+
 }
 
 $('.btn').on('click', (e) => {
 	createTamagotchi();
-	$(e.currentTarget).parent().parent().parent().remove();
+	$(e.currentTarget).parent().parent().parent().detach();
 	gameSetup();
 });
 
-$("#action-0").on('click', (e) => {
-	hero.feedTamagotchi();
-	$('#stat-1').text('Hunger: ' + hero.hunger);
-});
+const buttonFunction = () => {
+	$('#action0').on('click', () => {
+		hero.feedTamagotchi();
+		$('#stat-1').text('Hunger: ' + hero.hunger);
+	});
+
+	$('#action1').on('click', () => {
+		hero.sleepTamagotchi();
+		$('#stat-2').text('Sleepiness: ' + hero.sleepiness);
+	});
+
+	$('#action2').on('click', () => {
+		hero.playTamagotchi();
+		$('#stat-3').text('Boredom: ' + hero.boredom);
+	});
+}

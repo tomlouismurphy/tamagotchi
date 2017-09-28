@@ -32,6 +32,11 @@ p {
 	display: inline-block;
 }
 
-.stats {
+.interact {
+	margin: 5px;
+}
 
+#timer {
+	text-align: center;
+	clear: both;
 }
