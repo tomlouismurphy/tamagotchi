@@ -88,6 +88,7 @@ const startTime = () => {
 		trackBoredom();
 		trackSleepiness();
 		mortalityCheck();
+		evolveTamagotchi();
    	}
 }
 
@@ -147,4 +148,13 @@ const buttonFunction = () => {
 		hero.playTamagotchi();
 		$('#stat-3').text('Boredom: ' + hero.boredom);
 	});
+}
+
+const evolveTamagotchi = () => {
+	if (hero.age === 15){
+		$('#sprite_1').attr('src', 'images/spritelevel2.png');
+	}
+	if (hero.age === 30){
+		$('#sprite_1').attr('src', 'images/spritelevel3.png');
+	}
 }
