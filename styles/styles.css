@@ -30,8 +30,14 @@ p {
 }
 
 #sprite_1 {
-	height: 70%;
-	width: 70%;
+	height: 400px;
+	width: 400px;
+	display: inline-block;
+}
+
+#sprite_1 {
+	height: 400px;
+	width: 400px;
 	display: inline-block;
 }
 
