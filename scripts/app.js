@@ -28,15 +28,17 @@ class Tamagotchi {
 		$('.container').prepend('<img id="sprite_1" src="images/defaultsprite.png" />')
 	}
 	feedTamagotchi(){
-		if (this.hunger > 0){
+		if (this.hunger > 0 && $('.container').css('background-color') === 'rgb(255, 255, 0)'){
 			this.hunger--;
 		}
 	}
 	sleepTamagotchi(){
-		this.sleepiness = 0;
+		if ($('.container').css('background-color') === 'rgb(255, 255, 0)'){
+			this.sleepiness = 0;
+		}
 	}
 	playTamagotchi(){
-		if (this.boredom > 0){
+		if (this.boredom > 1 && $('.container').css('background-color') === 'rgb(255, 255, 0)'){
 			this.boredom -= 2;
 		}
 	}

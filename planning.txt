@@ -1,2 +1,13 @@
-Tamagotchi needs:
+Tamagotchi add ons:
 
+-turn off food/sleepiness/play when lights off DONE
+-more animation
+-style buttons
+-weight affected by food
+-iq effects boredom
+-improve styling
+-favorite food mechanism
+-better timer
+-baby tamagotchi
+-feed and playtime buttons not always able to be clicked
+-minigame within playtime function
