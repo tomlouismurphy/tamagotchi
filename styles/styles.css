@@ -1,10 +1,12 @@
 body {
-	background-color: white;
+	background-image: url("http://i.pinimg.com/originals/2a/69/a6/2a69a6e9172ee59fb1c4c402ecba0e04.jpg");
+	background-size: 100% 100%;
 }
 
 header {
 	text-align: center;
 	font-size: 40px;
+	font-weight: bold;
 }
 
 form {
@@ -15,10 +17,11 @@ form {
 }
 
 .container {
-	height: 400px;
-	width: 400px;
+	height: 100%;
+	width: 100%;
 	text-align: center;
 	margin: 2% auto;
+	background-color: rgba(255,255,0,0.5);
 }
 
 p {
@@ -39,4 +42,5 @@ p {
 #timer {
 	text-align: center;
 	clear: both;
+	display: hide;
 }

@@ -24,6 +24,7 @@ class Tamagotchi {
 		this.lifeStage = 'baby';
 		this.weight = Math.ceil(Math.random() * 5);
 		this.iq = Math.ceil((Math.random() * 40) + 80);
+		this.alive = true;
 		$('.container').prepend('<img id="sprite_1" src="images/defaultsprite.png" />')
 	}
 	feedTamagotchi(){
@@ -40,6 +41,7 @@ class Tamagotchi {
 		$('#stat-0').text('Age: ' + hero.age);
 	}
 	die(){
+		this.alive = false;
 		$('#sprite_1').attr('src', 'images/graves-clipart-3.png');
 
 	}
@@ -111,6 +113,7 @@ const gameSetup = () => {
 	$('#action1').text('Nighty night!');
 	$('#action2').text('Playtime');
 	buttonFunction();
+	moveTamagotchi();
 	startTime();
 };
 
@@ -151,10 +154,18 @@ const buttonFunction = () => {
 }
 
 const evolveTamagotchi = () => {
-	if (hero.age === 15){
+	if (hero.age === 15 && hero.alive === true){
 		$('#sprite_1').attr('src', 'images/spritelevel2.png');
 	}
-	if (hero.age === 30){
+	if (hero.age === 30 && hero.alive === true){
 		$('#sprite_1').attr('src', 'images/spritelevel3.png');
 	}
 }
+
+const moveTamagotchi = () => {
+	$('#sprite_1').on('click', (e) => {
+		console.log('hi');
+		console.log($(e.currentTarget)[0]);
+		$('header').animate({fontSize: '+=5px'}, 1500);
+	})
+};
