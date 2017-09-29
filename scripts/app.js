@@ -38,7 +38,7 @@ class Tamagotchi {
 		}
 	}
 	playTamagotchi(){
-		if (this.boredom > 1 && $('.container').css('background-color') === 'rgba(255, 255, 0, 0.5)'){
+		if (this.boredom > 0 && $('.container').css('background-color') === 'rgba(255, 255, 0, 0.5)'){
 			this.boredom -= 2;
 		}
 	}
@@ -67,21 +67,21 @@ const startTime = () => {
    			hero.ageTamagotchi();
    		}
    		const trackHunger = () => {
-			if (window.seconds % 2 === 0 && Math.floor(Math.random() * 5) + 1 === 5) {
+			if (window.seconds % 1 === 0 && Math.floor(Math.random() * 5) + 1 === 5) {
 				hero.hunger++;
 				$('#stat-1').text('Hunger: ' + hero.hunger);
 			}
 		};
 
 		const trackBoredom = () => {
-			if (window.seconds % 3 === 0 && Math.floor(Math.random() * 3) + 1 === 3) {
+			if (window.seconds % 2 === 0 && Math.floor(Math.random() * 3) + 1 === 3) {
 				hero.boredom++;
 				$('#stat-3').text('Boredom: ' + hero.boredom);
 			}
 		};
 
 		const trackSleepiness = () => {
-			if (window.seconds % 10 === 0) {
+			if (window.seconds % 5 === 0) {
 				hero.sleepiness++;
 				$('#stat-2').text('Sleepiness: ' + hero.sleepiness);
 			}
@@ -158,10 +158,10 @@ const buttonFunction = () => {
 }
 
 const evolveTamagotchi = () => {
-	if (hero.age === 15 && hero.alive === true){
+	if (hero.age === 10 && hero.alive === true){
 		$('#sprite_1').attr('src', 'images/spritelevel2.png');
 	}
-	if (hero.age === 30 && hero.alive === true){
+	if (hero.age === 20 && hero.alive === true){
 		$('#sprite_1').attr('src', 'images/spritelevel3.png');
 	}
 }

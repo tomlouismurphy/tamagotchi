@@ -43,6 +43,8 @@ p {
 
 .interact {
 	margin: 5px;
+	background-color: teal;
+	border-radius: 10px;
 }
 
 #timer {

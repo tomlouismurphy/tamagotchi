@@ -2,10 +2,9 @@ Tamagotchi add ons:
 
 -turn off food/sleepiness/play when lights off DONE
 -more animation DONE
--style buttons
+-style buttons DONE
 -weight affected by food
 -iq effects boredom
--improve styling
 -favorite food mechanism
 -better timer
 -baby tamagotchi
