@@ -28,17 +28,17 @@ class Tamagotchi {
 		$('.container').prepend('<img id="sprite_1" src="images/defaultsprite.png" />')
 	}
 	feedTamagotchi(){
-		if (this.hunger > 0 && $('.container').css('background-color') === 'rgb(255, 255, 0)'){
+		if (this.hunger > 0 && $('.container').css('background-color') === 'rgba(255, 255, 0, 0.5)'){
 			this.hunger--;
 		}
 	}
 	sleepTamagotchi(){
-		if ($('.container').css('background-color') === 'rgb(255, 255, 0)'){
+		if ($('.container').css('background-color') === 'rgba(255, 255, 0, 0.5)'){
 			this.sleepiness = 0;
 		}
 	}
 	playTamagotchi(){
-		if (this.boredom > 1 && $('.container').css('background-color') === 'rgb(255, 255, 0)'){
+		if (this.boredom > 1 && $('.container').css('background-color') === 'rgba(255, 255, 0, 0.5)'){
 			this.boredom -= 2;
 		}
 	}
@@ -147,7 +147,7 @@ const buttonFunction = () => {
 	$('#action1').on('click', () => {
 		hero.sleepTamagotchi();
 		$('.container').css('background-color', 'rgba(0,0,0,1)');
-		setTimeout(function(){ $('.container').css('background-color', 'yellow'); }, 10000)
+		setTimeout(function(){ $('.container').css('background-color', 'rgba(255, 255, 0, 0.5)'); }, 10000)
 		$('#stat-2').text('Sleepiness: ' + hero.sleepiness);
 	});
 
@@ -168,8 +168,10 @@ const evolveTamagotchi = () => {
 
 const moveTamagotchi = () => {
 	$('#sprite_1').on('click', (e) => {
-		console.log('hi');
-		console.log($(e.currentTarget)[0]);
-		$('header').animate({fontSize: '+=5px'}, 1500);
+		if (Math.random() > 0.5) {
+			$('#sprite_1').animate({height: '350px'}, 2000);
+		} else {
+			$('#sprite_1').animate({height: '450px'}, 2000);
+		}
 	})
 };
